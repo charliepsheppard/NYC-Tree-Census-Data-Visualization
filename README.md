@@ -15,3 +15,8 @@ With the NYC Tree Census Data Visualization, users will be able to:
 - Choose a variety of ways to display their data (bar, pie, etc.)
 - Have the ability to update filters and search again in real time.
 
+In addition, this project will include:
+
+- The ability to switch between different visualizations of the data
+- The functionality to add another selector to the filter
+
