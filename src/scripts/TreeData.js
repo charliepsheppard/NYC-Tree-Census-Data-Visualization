@@ -1,7 +1,7 @@
 
 class TreeData {
   async getData() {
-    await fetch('https://data.cityofnewyork.us/resource/uvpi-gqnh.json?spc_common=red maple&boroname=Brooklyn&zipcode=11249')
+    await fetch('https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=Manhattan&')
       .then(response => {
         return response.json()
       })
