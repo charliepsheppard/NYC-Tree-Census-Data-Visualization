@@ -1,7 +1,7 @@
 
 class TreeData {
-  async getData(name) {
-    let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=Manhattan&spc_common=honeylocust&status=${name}`)
+  async getData(borough, species) {
+    let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
     if (data.ok) {
       data = await data.json();
       return data;
@@ -11,26 +11,38 @@ class TreeData {
   }
 
   onClick() {
-    // return this.getData('');
-    // return this.getBoroughInfo();
+    // return this.getData();
+    return this.getBoroughInfo();
+    // return this.selectSpecies()
     // return this.getSpeciesInfo();
     // return this.getHealthInfo();
-    return this.getStatusInfo()
+    // return this.getStatusInfo();
   }
 
   getBoroughInfo() {
     const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
+    // let species = this.selectSpecies();
+    // let speciesSelector = document.getElementById('organize-by-select')
+    // speciesSelector.addEventListener('change', e => {
+    //   console.log('I was clicked');
+    //   return e.target.value;
+    // })
     let boroughData = {}
     BOROUGHS.forEach(borough => {
       boroughData[borough] = []
     })
 
     for (let i = 0; i < BOROUGHS.length; i++) {
-      this.getData(BOROUGHS[i])
-        .then(result => {boroughData[BOROUGHS[i]].push(result)});
+      this.getData(BOROUGHS[i], this.selectSpecies())
+        .then(result => {boroughData[BOROUGHS[i]].push(result)})
     }
 
     return boroughData;
+  }
+
+  selectSpecies() {
+    let selectedSpecies = document.getElementById('organize-by-select')
+    return selectedSpecies.value;
   }
 
   getSpeciesInfo() {

@@ -1,3 +1,14 @@
+import TreeData from './TreeData'
+
+let dataToChart;
+const tree = new TreeData();
+document.getElementById('get-tree').addEventListener("click", () => {
+  dataToChart = tree.onClick()
+  // return tree.onClick();
+  console.log(dataToChart);
+  return dataToChart
+});
+
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
   type: 'pie',
@@ -5,7 +16,7 @@ const myChart = new Chart(ctx, {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: [dataToChart['Manhattan'], dataToChart['Brooklyn'], dataToChart['Queens'], dataToChart['Staten Island'], dataToChart['Bronx']],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

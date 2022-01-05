@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
 });
 
-const tree = new TreeData();
+// const tree = new TreeData();
 // console.log(tree.getData());
 
 // const buttonToClick = document.querySelector('#get-tree');
@@ -17,9 +17,9 @@ const tree = new TreeData();
 // }
 
 
-document.getElementById('get-tree').addEventListener("click", () => {
-  return tree.onClick();
-});
+// document.getElementById('get-tree').addEventListener("click", () => {
+//   return tree.onClick();
+// });
 
 // const myChart = new Chart(
 //   document.getElementById('myChart'),
