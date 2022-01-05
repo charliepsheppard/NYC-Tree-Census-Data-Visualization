@@ -1,53 +1,50 @@
 
 class TreeData {
-  async getData() {
-    // ORGANIZE BY
-    const organize = document.getElementById('organize-by-select');
-    const selectedOrganize = organize.value;
-    let organizeToRequest = ''
-    if (selectedOrganize === 'staten-island') {
-      organizeToRequest = 'Staten Island';
+  async getData(name) {
+    const SPECIES = ['London planetree', 'honeylocust', 'cherry', 'red maple', 'green ash', 'American elm', 'ginkgo', 'willow oak', 'sugar maple', 'mulberry'];
+    let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${name}`)
+    if (data.ok) {
+      data = await data.json();
+      return data;
     } else {
-      let capitalized = selectedOrganize[0].toUpperCase() + selectedOrganize.slice(1);
-      organizeToRequest = capitalized;
+      throw new Error('Incorrect');
     }
-    console.log(selectedOrganize);
-
-    // GROUP BY
-    const group = document.getElementById('group-by-select');
-    const selectedGroupBy = group.value;
-    let requestBase = '';
-    let groupByToRequest = '';
-    if (selectedGroupBy === 'species-name') {
-      requestBase = '&spc_common='
-      groupByToRequest = ''
-    }
-    await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${organizeToRequest}`)
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        console.log(data);
-        // for (let i = 0; i < 10; i++) {
-        //   if (data[i]) {
-        //     let treeList = document.querySelector(".tree-list")
-        //     treeList.appendChild(document.createElement('li')).innerHTML = `${data[i].address}`
-        //   } else {
-        //     continue;
-        //   }
-        // }
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    // let data = await response.json();
-    // console.log('this is from getdata');
-    // return data;
-    // return response.then(data => console.log(data[0].boroname));
   }
 
   onClick() {
-    return this.getData();
+    // return this.getData('Manhattan');
+    return this.getBoroughInfo();
+  }
+
+  getBoroughInfo() {
+    const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
+    let boroughData = {
+      manhattan: [],
+      brooklyn: [],
+      statenIsland: [],
+      queens: [],
+      bronx: []
+    }
+
+    for (let i = 0; i < BOROUGHS.length; i++) {
+      if (BOROUGHS[i] === 'Manhattan') {
+        this.getData(BOROUGHS[i])
+          .then(result => { boroughData['manhattan'].push(result)})
+          .then(() => console.log(boroughData));
+      } else if (BOROUGHS[i] === 'Brooklyn') {
+        this.getData(BOROUGHS[i])
+          .then(result => { boroughData['brooklyn'].push(result) });
+      } else if (BOROUGHS[i] === 'Staten Island') {
+        this.getData(BOROUGHS[i])
+          .then(result => { boroughData['statenIsland'].push(result) });
+      } else if (BOROUGHS[i] === 'Queens') {
+        this.getData(BOROUGHS[i])
+          .then(result => { boroughData['queens'].push(result) });
+      } else {
+        this.getData(BOROUGHS[i])
+          .then(result => { boroughData['bronx'].push(result) });
+      }
+    }
   }
 }
 

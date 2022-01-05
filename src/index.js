@@ -15,6 +15,7 @@ const tree = new TreeData();
 //   console.log('I was clicked')
 // }
 
+
 document.getElementById('get-tree').addEventListener("click", () => {
   return tree.onClick();
 });
