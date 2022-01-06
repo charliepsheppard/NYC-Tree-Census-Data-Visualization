@@ -11,6 +11,7 @@ As said, this data will be coming from NYC Open Data, which is free data that is
 With the NYC Tree Census Data Visualization, users will be able to:
 
 - Look up different tree species
+- View by borough
 - Add filters to their search
 - Choose a variety of ways to display their data (bar, pie, etc.)
 - Have the ability to update filters and search again in real time.
