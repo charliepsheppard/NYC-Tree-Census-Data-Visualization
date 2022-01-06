@@ -1,12 +1,6 @@
 
 
 export default function (dataToChart) {
-  // let canvasContainer = document.querySelector('.chart-container');
-  // let canvasElementToReplace = document.getElementById('myChart');
-  // canvasContainer.removeChild(canvasElementToReplace)
-  // console.log(canvasContainer)
-  // canvasContainer.appendChild('canvas').addClass('myChart')
-  // console.log(canvasContainer)
   const canvas = document.getElementById('myChart')
   const ctx = canvas.getContext('2d');
   let chartStatus = Chart.getChart('myChart');
