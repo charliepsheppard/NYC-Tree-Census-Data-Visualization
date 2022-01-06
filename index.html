@@ -4,54 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./dist/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/255a2f9e7d.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Document</title>
 </head>
 <body>
-  <h1>NYC Tree Visualization</h1>
+  <h1 class="title-header">NYC Tree Data Visualization</h1>
   <div>
     <ul class="tree-list"></ul>
   </div>
-  <div class="graph-organization">
-    <label for="organize-by-select">Organize By:</label>
-    <br>
-    <select name="organize-by-options" id="organize-by-select">
-      <option value="">--Please select a species--</option>
-      <option value="European hronbeam">European Hornbeam</option>
-      <option value="mulberry">mulberry</option>
-      <option value="willow oak">willow oak</option>
-      <option value="Siberian elm">Siberian Elm</option>
-      <option value="Cornelian cherry">Cornelian Cherry</option>
-      <option value="black oak">Black Oak</option>
-      <option value="katsura tree">Katsura Tree</option>
-      <option value="tree of heaven">Tree Of Heaven</option>
-      <option value="paper birch">Paper Birch</option>
-    </select>
-    <br>
-    <!-- <label for="group-by-select">Group By: </label> -->
-    <br>
-    <!-- <select name="group-by-options" id="group-by-select">
-      <option value="">--Please choose an option--</option>
-      <option value="species-name">Species Name</option>
-      <option value="health">Health</option>
-      <option value="status">Status</option>
-      <option value="sidewalk-damage">Sidewalk Damage</option>
-    </select> -->
-    <br>
-    <label>
-      <input type="radio">
-      <i class="far fa-chart-bar"></i>
-    </label>
-    <label>
-      <input type="radio">
-      <i class="fas fa-chart-pie"></i>
-    </label>
-    <br>
-    <button id="get-tree">Apply Filters</button>
-  </div>
-  <div class="chart-container">
-    <canvas id="myChart"></canvas>
+  <div class="graph-selector-container">
+    <div class="graph-organization">
+      <label for="organize-by-select">Select Tree:</label>
+      <br>
+      <br>
+      <select name="organize-by-options" id="organize-by-select">
+        <option value="">--Please select a species--</option>
+        <option value="European hronbeam">European Hornbeam</option>
+        <option value="Siberian elm">Siberian Elm</option>
+        <option value="Cornelian cherry">Cornelian Cherry</option>
+        <option value="black oak">Black Oak</option>
+        <option value="katsura tree">Katsura Tree</option>
+        <option value="tree of heaven">Tree Of Heaven</option>
+        <option value="paper birch">Paper Birch</option>
+      </select>
+      <br>
+      <br>
+      <button id="get-tree">Chart Trees</button>
+      <br>
+      <br>
+      <div class="about-box">
+        <h2 class="about-heading">About: </h2>
+        <p>
+          This is the NYC Tree Data Visualization. The focus of this page is to see New York City trees in graphical form by borough. The way to use this application is to select a tree you would like to see and then you can click the button to chart it out.
+        </p>
+        <p>
+          The data you are seeing is coming from NYC Open Data 2015 Tree Census. New York's open data platform allows the use of important information of all kinds pertaining to New York City and it's people.
+        </p>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
   </div>
   <script src="./dist/main.js"></script>
 </body>

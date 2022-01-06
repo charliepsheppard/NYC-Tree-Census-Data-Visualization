@@ -13,24 +13,13 @@ class TreeData {
   }
 
   onClick() {
-    // return this.getData();
     this.getBoroughInfo().then(result => {
       createChart(result)
     });
-    // return this.selectSpecies()
-    // return this.getSpeciesInfo();
-    // return this.getHealthInfo();
-    // return this.getStatusInfo();
   }
 
   async getBoroughInfo() {
     const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
-    // let species = this.selectSpecies();
-    // let speciesSelector = document.getElementById('organize-by-select')
-    // speciesSelector.addEventListener('change', e => {
-    //   console.log('I was clicked');
-    //   return e.target.value;
-    // })
     let boroughData = {}
     BOROUGHS.forEach(borough => {
       boroughData[borough] = []
@@ -43,14 +32,8 @@ class TreeData {
       }
     }
 
-    // const returnBoroughData = async() => {
-    //   await getBoroughData();
-    //   // console.log(boroughData['Manhattan']);
-    // }
-
     await getBoroughData();
 
-    // console.log(boroughData[0]);
     return boroughData;
   }
 

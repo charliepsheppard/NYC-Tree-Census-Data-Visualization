@@ -1,0 +1,68 @@
+body {
+  background-color: #9DD9D2;
+}
+
+.graph-organization > label {
+  font-family: 'Lora', sans-serif;
+  font-size: 1.5em;
+  color: #003566;
+  font-weight: bold;
+}
+
+.graph-organization {
+  margin-top: 7em;
+}
+
+#organize-by-select {
+  height: 35px;
+  width: 300px;
+  font-size: 1em;
+  background-color: #D3D4D9;;
+}
+
+.title-header {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: #003566;
+  font-size: 3em;
+}
+
+.graph-selector-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#get-tree {
+  background-color: #CCA000;
+  border: 1px solid #003566;
+  padding: .4em;
+  font-family: 'Roboto', sans-serif;
+}
+
+#get-tree:hover {
+  cursor: pointer;
+}
+
+.about-box {
+  width: 350px;
+  padding: .02em .7em;
+  margin-top: 1.5em;
+  background-color: rgba(0, 53, 102, .5);
+}
+
+.about-box > p {
+  line-height: 1.4em;
+  color: #D3D4D9;
+  font-family: 'Roboto', sans-serif;
+}
+
+.about-heading {
+  color: #D3D4D9;
+  font-family: 'Lora', sans-serif;
+}
+
+.chart-container {
+  height: 700px;
+  width: 900px;
+  margin-top: 3em;
+}
