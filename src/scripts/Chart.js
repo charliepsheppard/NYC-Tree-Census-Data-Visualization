@@ -18,24 +18,23 @@ export default function (dataToChart) {
     data: {
       labels: ['Manhattan', 'Brooklyn', 'Queens', 'Staten Island', 'Bronx'],
       datasets: [{
-        label: '# of Trees',
+        label: 'Trees',
         data: [dataToChart['Manhattan'][0].length, dataToChart['Brooklyn'][0].length, dataToChart['Queens'][0].length, dataToChart['Staten Island'][0].length, dataToChart['Bronx'][0].length],
-        // data: [78, 200, 340, 80, 25],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 250, 0.2)',
-          'rgba(260, 206, 70, 0.2)',
-          'rgba(75, 200, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
+          'rgba(260, 206, 70, 0.6)',
+          'rgba(255, 99, 132, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(54, 162, 250, 0.6)',
+          'rgba(75, 200, 196, 0.6)',
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 250, 1)',
           'rgba(260, 206, 70, 1)',
-          'rgba(75, 200, 192, 1)',
+          'rgba(255, 99, 132, 1)',
           'rgba(153, 102, 255, 1)',
+          'rgba(54, 162, 250, 1)',
+          'rgba(75, 200, 196, 1)',
         ],
-        borderWidth: 1
+        borderWidth: 2
       }]
     },
     options: {
@@ -47,11 +46,3 @@ export default function (dataToChart) {
     }
   });
 }
-
-// let dataToChart;
-
-
-//   if (dataToChart) {
-    
-//   }
-// });
