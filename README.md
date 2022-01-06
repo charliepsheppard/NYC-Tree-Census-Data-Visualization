@@ -27,12 +27,12 @@ In addition, this project will include:
 ## Technologies, Libraries, APIs
 
 - [NYC Open Data 2015 Tree Census Dataset](https://data.cityofnewyork.us/Environment/2015-Street-Tree-Census-Tree-Data/uvpi-gqnh)
-- D3
+- Chart.js
 
 ## Implementation Timeline
 
 - Friday afternoon & weekend: Establish connection with database and ensure that all necessary requests are able to come through. During this time I would also like to figure out how to properly filter information when making reuests so the user can have multiple filters at one time. 
-- Monday: Focus on how to implement D3 in order to visualize the data appropriately. If there is time I would also like to figure out the ability to represent data in different ways. 
+- Monday: Focus on how to implement Chart.js in order to visualize the data appropriately. If there is time I would also like to figure out the ability to represent data in different ways. 
 - Tuesday: Render to page. At this point I want to get something functioning on the page. Styling at this point is not necessary.
 - Wednesday: Style the project up to it's current status. Features can be added, but I want base styling to be added today. At this point I would also like to add it to Github pages. 
 - Thursday morning: Testing site wide and fixing any bugs that are still present or have yet to be found. The goal is to limit my work to making sure the site is working. 
