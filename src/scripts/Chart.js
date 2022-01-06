@@ -9,10 +9,8 @@ export default function (dataToChart) {
   // console.log(canvasContainer)
   const canvas = document.getElementById('myChart')
   const ctx = canvas.getContext('2d');
-  console.log(Chart.getChart("0"));
-  let chartStatus = Chart.getChart('0');
+  let chartStatus = Chart.getChart('myChart');
   if (chartStatus !== undefined) {
-    
     chartStatus.destroy();
   }
   const myChart = new Chart(ctx, {
