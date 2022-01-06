@@ -1,5 +1,7 @@
 
+import createChart from './Chart'
 class TreeData {
+
   async getData(borough, species) {
     let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
     if (data.ok) {
@@ -12,14 +14,14 @@ class TreeData {
 
   onClick() {
     // return this.getData();
-    return this.getBoroughInfo();
+    this.getBoroughInfo().then(result => createChart(result));
     // return this.selectSpecies()
     // return this.getSpeciesInfo();
     // return this.getHealthInfo();
     // return this.getStatusInfo();
   }
 
-  getBoroughInfo() {
+  async getBoroughInfo() {
     const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
     // let species = this.selectSpecies();
     // let speciesSelector = document.getElementById('organize-by-select')
@@ -32,11 +34,21 @@ class TreeData {
       boroughData[borough] = []
     })
 
-    for (let i = 0; i < BOROUGHS.length; i++) {
-      this.getData(BOROUGHS[i], this.selectSpecies())
-        .then(result => {boroughData[BOROUGHS[i]].push(result)})
+    const getBoroughData = async () => {
+      for (let i = 0; i < BOROUGHS.length; i++) {
+        const res = await this.getData(BOROUGHS[i], this.selectSpecies())
+        boroughData[BOROUGHS[i]].push(res)
+      }
     }
 
+    // const returnBoroughData = async() => {
+    //   await getBoroughData();
+    //   // console.log(boroughData['Manhattan']);
+    // }
+
+    await getBoroughData();
+
+    // console.log(boroughData[0]);
     return boroughData;
   }
 

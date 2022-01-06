@@ -3,9 +3,11 @@ const Chart = require('./scripts/Chart');
 
 window.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
+  const tree = new TreeData();
+  document.getElementById('get-tree').addEventListener("click", tree.onClick.bind(tree));
 });
 
-// const tree = new TreeData();
+
 // console.log(tree.getData());
 
 // const buttonToClick = document.querySelector('#get-tree');
