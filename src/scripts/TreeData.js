@@ -14,7 +14,9 @@ class TreeData {
 
   onClick() {
     // return this.getData();
-    this.getBoroughInfo().then(result => createChart(result));
+    this.getBoroughInfo().then(result => {
+      createChart(result)
+    });
     // return this.selectSpecies()
     // return this.getSpeciesInfo();
     // return this.getHealthInfo();
