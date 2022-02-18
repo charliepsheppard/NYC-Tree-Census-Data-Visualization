@@ -6,6 +6,8 @@ This project will be focusing on the 2015 NYC Tree Census data that was made ava
 
 As said, this data will be coming from NYC Open Data, which is free data that is available to the general public on city information. This will be the only data source that I will be using, as it will have all the information I will need. In order to represent the data, I will be using D3 to assist in creating tables and charts for the user to see. 
 
+[Live site](https://charliepsheppard.github.io/NYC-Tree-Census-Data-Visualization/)
+
 ## Functionality and MVPs
 
 With the NYC Tree Census Data Visualization, users will be able to:
