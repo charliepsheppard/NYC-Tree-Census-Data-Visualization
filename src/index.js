@@ -8,8 +8,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-// console.log(tree.getData());
-
 // const buttonToClick = document.querySelector('#get-tree');
 // buttonToClick.addEventListener('click', tree.onClick);
 // if (buttonToClick) {
