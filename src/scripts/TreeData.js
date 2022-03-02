@@ -14,12 +14,10 @@ const getData = async (borough, species) => {
 
 export const getDataOnClick = () => {
   displayLoader();
-  // setTimeout(() => {
     getBoroughInfo().then(result => {
       createChart(result)
       hideLoader();
     });
-  // }, 5000);
 }
 
 const getBoroughInfo = async () => {
@@ -48,19 +46,14 @@ const selectSpecies = () => {
 
 
 let loader = document.querySelector('.loader');
+let canvas = document.getElementById('myChart')
 
 const displayLoader = () => {
-  // loader.classList.add('display')
-  console.log(loader);
+  canvas.style.display = 'none'
   loader.style.display = 'block';
-
-  // setTimeout(() => {
-  //   loader.classList.remove('display');
-  // });
 }
 
 const hideLoader = () => {
-  // loader.classList.remove('display')
-  // let loader = document.querySelector('.loader');
   loader.style.display = 'none';
+  canvas.style.display = 'block';
 }
