@@ -3,9 +3,16 @@ import createChart from './Chart'
 class TreeData {
 
   async getData(borough, species) {
+    let hasData = false;
+    if (hasData === false) {
+      document.querySelector('.loader').classList.remove('active');
+    } 
+    // document.querySelector('.loader').classList.remove('active');
     let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
     if (data.ok) {
+      document.querySelector('.loader').classList.remove('active');
       data = await data.json();
+      console.log(hasData)
       return data;
     } else {
       throw new Error('Invalid action');

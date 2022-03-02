@@ -17,12 +17,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 //   console.log()
 // }
 
-window.addEventListener('change', function() {
-  let chartElement = document.getElementById('myChart')
-  console.log(chartElement)
-  if (chartElement.innerHTML !== '') {
-    console.log('we have a chart');
-  } else {
-    console.log('no chart');
-  }
-})
+// window.addEventListener('change', function() {
+//   let chartElement = document.getElementById('myChart')
+//   console.log(chartElement)
+//   if (chartElement.innerHTML !== '') {
+//     console.log('we have a chart');
+//   }
+
+//   console.log('no chart');
+// })
