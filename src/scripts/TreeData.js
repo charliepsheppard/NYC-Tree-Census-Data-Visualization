@@ -1,108 +1,154 @@
 
 import createChart from './Chart'
-class TreeData {
+// class TreeData {
   
-  async getData(borough, species) {
-    let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
-    if (data.ok) {
-      data = await data.json();
-      return data;
-    } else {
-      console.log('no data!')
-      throw new Error('Invalid action');
-    }
-  }
+//   async getData(borough, species) {
+//     let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
+//     if (data.ok) {
+//       data = await data.json();
+//       return data;
+//     } else {
+//       console.log('no data!')
+//       throw new Error('Invalid action');
+//     }
+//   }
 
-  onClick() {
-    this.getBoroughInfo().then(result => {
-      createChart(result)
-    });
-  }
+//   onClick() {
+//     this.getBoroughInfo().then(result => {
+//       console.log(result);
+//       createChart(result)
+//     });
+//   }
 
-  async getBoroughInfo() {
-    const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
-    let boroughData = {}
-    BOROUGHS.forEach(borough => {
-      boroughData[borough] = []
-    })
+//   async getBoroughInfo() {
+//     const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
+//     let boroughData = {}
+//     BOROUGHS.forEach(borough => {
+//       boroughData[borough] = []
+//     })
 
-    const getBoroughData = async () => {
-      for (let i = 0; i < BOROUGHS.length; i++) {
-        const res = await this.getData(BOROUGHS[i], this.selectSpecies())
-        boroughData[BOROUGHS[i]].push(res)
-      }
-    }
+//     const getBoroughData = async () => {
+//       for (let i = 0; i < BOROUGHS.length; i++) {
+//         const res = await this.getData(BOROUGHS[i], this.selectSpecies())
+//         boroughData[BOROUGHS[i]].push(res)
+//       }
+//     }
 
-    await getBoroughData();
+//     await getBoroughData();
 
-    return boroughData;
-  }
+//     return boroughData;
+//   }
 
-  selectSpecies() {
-    let selectedSpecies = document.getElementById('organize-by-select')
-    return selectedSpecies.value;
-  }
+//   selectSpecies() {
+//     let selectedSpecies = document.getElementById('organize-by-select')
+//     return selectedSpecies.value;
+//   }
 
-  getSpeciesInfo() {
-    const SPECIES = ['London planetree', 'honeylocust', 'cherry', 'red maple', 'green ash', 'American elm', 'ginkgo', 'willow oak', 'sugar maple', 'mulberry'];
-    let speciesData = {};
-    SPECIES.forEach(tree => {
-      speciesData[tree] = [];
-    });
+//   getSpeciesInfo() {
+//     const SPECIES = ['London planetree', 'honeylocust', 'cherry', 'red maple', 'green ash', 'American elm', 'ginkgo', 'willow oak', 'sugar maple', 'mulberry'];
+//     let speciesData = {};
+//     SPECIES.forEach(tree => {
+//       speciesData[tree] = [];
+//     });
 
-    for (let i = 0; i < SPECIES.length; i++) {
-      this.getData(SPECIES[i])
-        .then(result => {speciesData[SPECIES[i]].push(result)});
-    }
+//     for (let i = 0; i < SPECIES.length; i++) {
+//       this.getData(SPECIES[i])
+//         .then(result => {speciesData[SPECIES[i]].push(result)});
+//     }
 
-    return speciesData;
-  }
+//     return speciesData;
+//   }
 
-  getHealthInfo() {
-    const HEALTH = ['Good', 'Fair', '(No Value)', 'Poor'];
-    let healthData = {};
-    HEALTH.forEach(condition => {
-      healthData[condition] = [];
-    });
+//   getHealthInfo() {
+//     const HEALTH = ['Good', 'Fair', '(No Value)', 'Poor'];
+//     let healthData = {};
+//     HEALTH.forEach(condition => {
+//       healthData[condition] = [];
+//     });
 
-    for (let i = 0; i < HEALTH.length; i++) {
-      this.getData(HEALTH[i])
-        .then(result => {healthData[HEALTH[i]].push(result)});
-    }
+//     for (let i = 0; i < HEALTH.length; i++) {
+//       this.getData(HEALTH[i])
+//         .then(result => {healthData[HEALTH[i]].push(result)});
+//     }
 
-    return healthData;
-  }
+//     return healthData;
+//   }
 
-  getStatusInfo() {
-    const STATUS = ['Alive', 'Stump', 'Dead'];
-    let statusData = {};
-    STATUS.forEach(stat => {
-      statusData[stat] = [];
-    });
+//   getStatusInfo() {
+//     const STATUS = ['Alive', 'Stump', 'Dead'];
+//     let statusData = {};
+//     STATUS.forEach(stat => {
+//       statusData[stat] = [];
+//     });
 
-    for (let i = 0; i < STATUS.length; i++) {
-      this.getData(STATUS[i])
-        .then(result => {statusData[STATUS[i]].push(result)});
-    }
+//     for (let i = 0; i < STATUS.length; i++) {
+//       this.getData(STATUS[i])
+//         .then(result => {statusData[STATUS[i]].push(result)});
+//     }
 
-    return statusData;
-  }
+//     return statusData;
+//   }
 
-  getSideWalkDamage() {
-    const DAMAGED = ['NoDamage', 'Damage', '(No Value)'];
-    let damagedData = {};
-    DAMAGED.forEach(damage => {
-      damagedData[damage] = [];
-    });
+//   getSideWalkDamage() {
+//     const DAMAGED = ['NoDamage', 'Damage', '(No Value)'];
+//     let damagedData = {};
+//     DAMAGED.forEach(damage => {
+//       damagedData[damage] = [];
+//     });
 
-    for (let i = 0; i < DAMAGED.length; i++) {
-      this.getData(DAMAGED[i])
-        .then(result => {damagedData[DAMAGED[i]].push(result)});
-    }
+//     for (let i = 0; i < DAMAGED.length; i++) {
+//       this.getData(DAMAGED[i])
+//         .then(result => {damagedData[DAMAGED[i]].push(result)});
+//     }
 
-    return damagedData;
+//     return damagedData;
+//   }
+// }
+
+// export default TreeData;
+
+const getData = async (borough, species) => {
+  let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
+  if (data.ok) {
+    data = await data.json();
+    return data;
+  } else {
+    console.log('no data!')
+    throw new Error('Invalid action');
   }
 }
 
-export default TreeData;
+export const getDataOnClick = () => {
+  getBoroughInfo().then(result => {
+    if (result === undefined) {
+      console.log('no result yet')
+    }
+    console.log(result);
+    createChart(result)
+  });
+}
+
+const getBoroughInfo = async () => {
+  const BOROUGHS = ['Manhattan', 'Brooklyn', 'Staten Island', 'Queens', 'Bronx'];
+  let boroughData = {}
+  BOROUGHS.forEach(borough => {
+    boroughData[borough] = []
+  })
+
+  const getBoroughData = async () => {
+    for (let i = 0; i < BOROUGHS.length; i++) {
+      const res = await getData(BOROUGHS[i], selectSpecies())
+      boroughData[BOROUGHS[i]].push(res)
+    }
+  }
+
+  await getBoroughData();
+
+  return boroughData;
+}
+
+const selectSpecies = () => {
+  let selectedSpecies = document.getElementById('organize-by-select')
+  return selectedSpecies.value;
+}
 
