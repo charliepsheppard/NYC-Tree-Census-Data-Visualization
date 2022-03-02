@@ -3,7 +3,7 @@ body {
 }
 
 .graph-organization > label {
-  font-family: 'Lora', sans-serif;
+  font-family: "Lora", sans-serif;
   font-size: 1.5em;
   color: #003566;
   font-weight: bold;
@@ -17,11 +17,11 @@ body {
   height: 35px;
   width: 300px;
   font-size: 1em;
-  background-color: #D3D4D9;;
+  background-color: #D3D4D9;
 }
 
 .title-header {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   color: #003566;
   font-size: 3em;
@@ -35,8 +35,8 @@ body {
 #get-tree {
   background-color: #CCA000;
   border: 1px solid #003566;
-  padding: .4em;
-  font-family: 'Roboto', sans-serif;
+  padding: 0.4em;
+  font-family: "Roboto", sans-serif;
 }
 
 #get-tree:hover {
@@ -44,35 +44,58 @@ body {
 }
 
 .about-box {
-  width: 350px;
-  padding: .02em .7em;
+  width: 21.875em;
+  padding: 0.02em 0.7em;
   margin-top: 1.2em;
-  background-color: rgba(0, 53, 102, .5);
+  background-color: rgba(0, 53, 102, 0.5);
 }
 
 .about-box > p {
   line-height: 1.4em;
   color: #D3D4D9;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .about-heading {
   color: #D3D4D9;
-  font-family: 'Lora', sans-serif;
+  font-family: "Lora", sans-serif;
 }
 
 .social-media-container {
   display: flex;
   justify-content: space-around;
-  margin-top: .8em;
+  margin-top: 0.8em;
 }
 
-.social-media-container > a > i {
-  color: #003566;
+.social-media-container > a > img {
+  height: 2.5em;
 }
 
 .chart-container {
-  height: 700px;
-  width: 900px;
+  height: 43.75em;
+  width: 56.25em;
   margin-top: 3em;
+}
+
+.loader {
+  border: 1em solid #f3f3f3;
+  border-top: 1em solid #3498db;
+  border-radius: 50%;
+  width: 7.5em;
+  height: 7.5em;
+  animation: spin 1.5s linear infinite;
+  margin: 8em auto;
+}
+
+.loader {
+  display: none;
+}
+
+.loader.display {
+  visibility: visible;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
