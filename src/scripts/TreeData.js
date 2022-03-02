@@ -1,13 +1,31 @@
 
 import createChart from './Chart'
 class TreeData {
-
+  
   async getData(borough, species) {
+    const showSpinner = () => document.querySelector('.loader').style.visibility = 'visible';
+    const hideSpinner = () => document.querySelector('.loader').style.visibility = 'hidden';
+    let hasData = false;
+    let chart = `<canvas id="myChart"></canvas>`
+    let loader = `<div class="loader"></div>`
+    let chartContainer = document.querySelector('.chart-container')
+    console.log(hasData)
+    
+    // document.querySelector('.loader').classList.remove('active');
     let data = await fetch(`https://data.cityofnewyork.us/resource/uvpi-gqnh.json?boroname=${borough}&spc_common=${species}`)
+    console.log(data)
     if (data.ok) {
+      // chartContainer.innerHTML = chart
+      // document.querySelector('.loader').style.display = 'none';
+      // hasData = true;
+      // hasData === false ? chartContainer.innerHTML = loader : chartContainer.innerHTML = chart
+      // hasData = false;
+      // console.log(hasData)
       data = await data.json();
+      // console.log(hasData)
       return data;
     } else {
+      console.log('no data!')
       throw new Error('Invalid action');
     }
   }

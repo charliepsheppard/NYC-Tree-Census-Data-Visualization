@@ -4,6 +4,7 @@ export default function (dataToChart) {
   const canvas = document.getElementById('myChart')
   const ctx = canvas.getContext('2d');
   let chartStatus = Chart.getChart('myChart');
+
   if (chartStatus !== undefined) {
     chartStatus.destroy();
   }

@@ -47,7 +47,7 @@ body {
 }
 
 .about-box {
-  width: 350px;
+  width: 21.875em;
   padding: 0.02em 0.7em;
   margin-top: 1.2em;
   background-color: rgba(0, 53, 102, 0.5);
@@ -71,11 +71,29 @@ body {
 }
 
 .social-media-container > a > img {
-  height: 40px;
+  height: 2.5em;
 }
 
 .chart-container {
-  height: 700px;
-  width: 900px;
+  height: 43.75em;
+  width: 56.25em;
   margin-top: 3em;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.active {
+  display: block;
 }
